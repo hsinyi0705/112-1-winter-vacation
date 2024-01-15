@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 
-x = np.array([1,2,3])
+x = np.array([[1,2,3],[1,2,3]])
 #常用的 ndarray 屬性
 
 print(f"type{type(x)}")
@@ -24,7 +24,7 @@ print(f"dim:{x.ndim}")
 result
 
 type<class 'numpy.ndarray'>
-size:3    
-shape:(3,)
-dim:1 
+size:6
+shape:(2, 3)
+dim:2
 """
