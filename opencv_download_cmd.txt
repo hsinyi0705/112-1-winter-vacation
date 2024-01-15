@@ -1,0 +1,4 @@
+1. pip --version or pip3 --version
+2. pip install opencv-python
+3. pip install opencv-contrib-python 
+4. pip install opencv-python-headless 
