@@ -1,5 +1,6 @@
 import cv2 as cv
 import numpy as np
+import random
 
 img = np.empty((500,300,3),np.uint8)
 """
@@ -10,7 +11,8 @@ img = np.empty((500,300,3),np.uint8)
 
 for row in range(500):
     for col in range(300):
-        img[row][col] = [0,255,0]
+        img[row][col] = [random.randint(0,255),random.randint(0,255),random.randint(0,255)]
+        #用 random 隨機產生 BGR 值來創建圖片
 
 cv.imshow('img',img)
 
