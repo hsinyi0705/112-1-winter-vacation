@@ -1,19 +1,23 @@
 import cv2 as cv
 
-img = cv.imread("images\\traffic_light.png")
+import numpy as np
 
-img = cv.resize(img, (0,0), fx=2, fy=2)
+img = cv.imread("images\\rgb.png")
 
-rgb = cv.cvtColor(img, cv.COLOR_BGR2RGB)
-'''
-BGR 轉 RGB
-'''
+img = cv.resize(img, (0,0), fx=0.5, fy=0.5)
 
 cv.imshow('img', img)
+cv.waitKey(0)
 
-cv.imshow('rgb', rgb)
+#使用split()拆解色彩通道
+b,g,r = cv.split(img)
 
+cv.imshow('b',b)
+cv.imshow('g',g)
+cv.imshow('r',r)
 cv.waitKey(0)
 
 cv.imwrite('images\\img_0116_original.png',img)
-cv.imwrite('images\\img_0116_new.png',rgb)
+cv.imwrite('images\\img_0116_new-b.png',b)
+cv.imwrite('images\\img_0116_new-g.png',g)
+cv.imwrite('images\\img_0116_new-r.png',r)
