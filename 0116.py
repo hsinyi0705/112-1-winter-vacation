@@ -1,25 +1,20 @@
 import cv2 as cv
-
 import numpy as np
 
-img = cv.imread("images\\rgb.png")
+lt = cv.imread("images\\lt.png")
+rt = cv.imread("images\\rt.png")
+lb = cv.imread("images\\lb.png")
+rb = cv.imread("images\\rb.png")
 
-img = cv.resize(img, (0,0), fx=0.5, fy=0.5)
+stackV = np.vstack((lt,lb)) #.vstack() 垂直組合圖片
+stackH = np.hstack((lt,rt)) #.hstack() 水平組合圖片
+'''
+待合併的圖片必須是大小完全相同的圖片，且帶入函式時必須用括號框起。
+'''
 
-cv.imshow('img', img)
+cv.imshow("stackV", stackV)
+cv.imshow("stackH", stackH)
 cv.waitKey(0)
 
-
-b,g,r = cv.split(img)
-cv.imshow('b',b)
-cv.imshow('g',g)
-cv.imshow('r',r)
-cv.waitKey(0)
-
-#使用 merge() 合併色彩通道
-#merge([藍,綠,紅])，回傳值三色彩通道的圖片
-img_merge = cv.merge([b,g,r])
-cv.imshow('merge',img_merge)
-cv.waitKey(0)
-
-cv.imwrite('images\\img_0116_new.png',img_merge)
+cv.imwrite('images\\img_0116_new-stackV.png',stackV)
+cv.imwrite('images\\img_0116_new-stackH.png',stackH)
