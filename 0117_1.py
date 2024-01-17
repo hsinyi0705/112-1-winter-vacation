@@ -50,7 +50,7 @@ for cnt in contours:
     if (area > 300):
 
         # 4-4 取得輪廓的邊長 (外框總長)
-        print(cv.arcLength(cnt, True))
+        #print(cv.arcLength(cnt, True))
         peri = cv.arcLength(cnt, True)
         '''
         .arcLength
@@ -62,7 +62,8 @@ for cnt in contours:
 
         # 4-5 用多邊形近似輪廓
         vertices = cv.approxPolyDP(cnt, peri*0.02, True)
-        print(len(vertices))
+        #print(len(vertices))
+        corners = len(vertices) # 儲存頂點數目
         '''
         .approxPolyDP 會回傳多邊形的頂點，算出來頂點特多的可能就是圓形
         (參數1: 要近似的輪廓
@@ -79,6 +80,19 @@ for cnt in contours:
         cv.rectangle(imgContour, (x, y), (x+w, y+h), (0, 255, 0), 4)
         '''
         .rectangle (要畫的圖片，方框左上座標，方框右下座標，框線顏色，框線粗細)
+        '''
+
+        # 4-6 圖形依形狀分類並做標記
+        if (corners == 3):
+            cv.putText(imgContour, 'triangle', (x, y-5), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        elif (corners == 4):
+            cv.putText(imgContour, 'rectangle', (x, y-5), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        elif (corners ==5):
+            cv.putText(imgContour, 'pentagon', (x, y-5), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        else:
+            cv.putText(imgContour, 'circle', (x, y-5), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        '''
+        .putText (要畫的圖片，要寫的字，字的起始座標，字型，文字大小，字的顏色，文字粗度)
         '''
 
 
