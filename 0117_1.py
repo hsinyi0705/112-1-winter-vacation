@@ -28,10 +28,10 @@ contours, hierarchy = cv.findContours(canny,cv.RETR_EXTERNAL,cv.CHAIN_APPROX_NON
 
 # 4 - 利用 for 迴圈去跑輪廓
 for cnt in contours:
-    # 印出輪廓點(這些點連起來就是輪廓)
-    print(cnt) 
+    # 4-1 印出輪廓點(這些點連起來就是輪廓)
+    #print(cnt) 
 
-    # 畫出輪廓
+    # 4-2 畫出輪廓
     cv.drawContours(imgContour, cnt, -1, (255,0,0), 4)
     '''
     .drawContours
@@ -40,6 +40,12 @@ for cnt in contours:
     參數3: 要畫第幾個輪廓，-1是指全畫
     參數4: 要用什麼顏色畫
     參數5: 畫的線條粗度)
+    '''
+
+    # 4-3 得到輪廓面積
+    print(cv.contourArea(cnt))
+    '''
+    如果看到面積是0，那點可能是個雜訊，直接可以忽略不理
     '''
 
 
@@ -51,4 +57,3 @@ cv.waitKey(0)
 cv.imwrite('images\\img0117-1.png',img)
 cv.imwrite('images\\img0117-2.png',canny)
 cv.imwrite('images\\img0117-3.png',imgContour)
-
