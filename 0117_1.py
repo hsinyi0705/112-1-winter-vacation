@@ -43,10 +43,21 @@ for cnt in contours:
     '''
 
     # 4-3 得到輪廓面積
-    print(cv.contourArea(cnt))
+    #print(cv.contourArea(cnt))
     '''
     如果看到面積是0，那點可能是個雜訊，直接可以忽略不理
     '''
+
+    # 4-4 取得輪廓的邊長 (外框總長)
+    print(cv.arcLength(cnt, True))
+    '''
+    .arcLength
+    (參數1: 輪廓
+    參數2: 填入輪廓是否為閉合，使用布林值)
+
+    如果看到邊長是0，那點可能是個雜訊(噪點)，直接可以忽略不理
+    '''
+
 
 
 cv.imshow('img', img)
