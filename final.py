@@ -1,11 +1,16 @@
 import cv2 as cv
 
-cap = cv.VideoCapture("images\\f1.mp4") # 讀入影片檔案
+video = cv.VideoCapture("images\\f1.mp4") # 讀入影片檔案
 
 tracker = cv.TrackerKCF_create() # 初始化追蹤器
 
+# 選擇初始框
+ret, frame = video.read() # 讀圖片第一幀
+seek = cv.selectROI('cup', video, True, False) # (顯示框名稱，畫在哪，是否在框裡畫十字線，) 
+
+
 while True:
-    ret, frame = cap.read()
+    ret, frame = video.read()
     '''
     ret: 看影片的下一幀有沒有讀取成功(ture or false)
     frame: 影片的下一幀畫面
@@ -22,3 +27,6 @@ while True:
         break
     
 
+video.release() # 釋放影片和寫入器
+
+cv.destroyAllWindows() # 關閉 OpenCV 窗口
