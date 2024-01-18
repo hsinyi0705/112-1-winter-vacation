@@ -1,7 +1,6 @@
 import cv2 as cv
 
-# 讀入影片檔案
-cap = cv.VideoCapture("images\\f1.mp4")
+cap = cv.VideoCapture("images\\f1.mp4") # 讀入影片檔案
 
 while True:
     ret, frame = cap.read()
@@ -11,6 +10,7 @@ while True:
     '''
 
     if ret:
+        frame = cv.resize(frame, (0, 0), fx=2, fy=2) # 改變影片視窗大小，做法和改圖片的部分相同
         cv.imshow('video', frame)
     else:
         break
