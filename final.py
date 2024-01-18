@@ -2,6 +2,8 @@ import cv2 as cv
 
 cap = cv.VideoCapture("images\\f1.mp4") # 讀入影片檔案
 
+tracker = cv.TrackerKCF_create() # 初始化追蹤器
+
 while True:
     ret, frame = cap.read()
     '''
@@ -14,8 +16,9 @@ while True:
         cv.imshow('video', frame)
     else:
         break
-
-    if (cv.waitKey(3) == ord('q')): # 設定強行終止影片播放按鍵
+    
+    cv.waitKey(5)
+    if (cv.waitKey(5) == ord('q')): # 設定強行終止影片播放按鍵 
         break
     
 
