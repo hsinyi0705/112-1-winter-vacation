@@ -1,1 +1,9 @@
+OpenCV
 https://www.youtube.com/watch?v=xjrykYpaBBM
+
+Python 物件追蹤
+https://www.youtube.com/watch?v=BT3KMlTuBTY
+
+10分鐘學習Opencv目標跟蹤 
+https://www.youtube.com/watch?v=ZVViMnokiLI
+
