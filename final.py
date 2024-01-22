@@ -42,11 +42,11 @@ while True:
     if ret: # 成功追蹤的情況下，將追蹤框畫在當前畫面上
         r1 = (seek[0], seek[1]) # 左上 
         r2 = ((seek[0]+seek[2]), (seek[1]+seek[3])) # 右下
-        cv.rectangle(frame, r1, r2, (160, 84, 1), 8)
+        cv.rectangle(frame, r1, r2, (255, 0, 0), 10)
         # .rectangle (要畫的圖片，方框左上座標，方框右下座標，框線顏色，框線粗細)
     
     else:
-        cv.putText(frame, "!!! fail !!!", (100,100), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
+        cv.putText(frame, "!!! WOW !!!", (100,100), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
         # .putText (要畫的圖片，要寫的字，字的起始座標，字型，文字大小，字的顏色，文字粗度)
     
     
@@ -59,5 +59,3 @@ while True:
 
 video.release() # 釋放影片和寫入器
 cv.destroyAllWindows() # 關閉所有窗口
-
-
